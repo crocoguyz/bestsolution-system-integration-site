@@ -1,0 +1,733 @@
+/* =========================================================
+   BEST SOLUTION - MOBILE RESPONSIVE OVERRIDES
+   Load this file AFTER style.css
+   <link rel="stylesheet" href="mobile.css" />
+========================================================= */
+
+@media (max-width: 1080px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+  }
+
+  body {
+    line-height: 1.5;
+  }
+
+  .page-bg,
+  #vanta-bg {
+    overflow: hidden !important;
+  }
+
+  /* Header becomes mobile-friendly instead of hiding nav */
+  .site-header {
+    position: sticky !important;
+    top: 8px !important;
+    width: calc(100% - 20px) !important;
+    max-width: 100% !important;
+    margin: 8px auto 0 !important;
+    padding: 10px !important;
+    border-radius: 24px !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    overflow: hidden !important;
+  }
+
+  .site-header::after {
+    display: none !important;
+  }
+
+  .brand {
+    grid-column: 1 !important;
+    justify-self: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    gap: 8px !important;
+  }
+
+  .brand-mark {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 14px !important;
+  }
+
+  .brand-text {
+    display: inline-block !important;
+    font-size: clamp(0.95rem, 4.3vw, 1.25rem) !important;
+    letter-spacing: 0.055em !important;
+    white-space: nowrap !important;
+  }
+
+  .main-nav {
+    grid-column: 1 !important;
+    display: flex !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: flex-start !important;
+    gap: 8px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    padding: 2px 2px 4px !important;
+    scrollbar-width: none !important;
+  }
+
+  .main-nav::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .main-nav a {
+    flex: 0 0 auto !important;
+    min-height: 34px !important;
+    padding: 0 14px !important;
+    font-size: 0.78rem !important;
+    border-radius: 999px !important;
+  }
+
+  /* General section spacing */
+  .section-padding,
+  .why-section {
+    width: calc(100% - 28px) !important;
+    max-width: 100% !important;
+    padding-top: 74px !important;
+    padding-bottom: 74px !important;
+  }
+
+  .section-head,
+  .section-head.align-left {
+    max-width: 100% !important;
+    margin: 0 auto 28px !important;
+    text-align: center !important;
+  }
+
+  .section-kicker,
+  #services .section-kicker,
+  #scope .section-kicker {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    font-size: clamp(1.45rem, 8vw, 2.2rem) !important;
+    line-height: 1.12 !important;
+    letter-spacing: 0.12em !important;
+    white-space: normal !important;
+  }
+
+  .section-head h2,
+  .why-panel h2,
+  .contact-copy h2,
+  #scope .section-head h2,
+  #services .section-head h2 {
+    max-width: 100% !important;
+    margin-top: 16px !important;
+    font-size: clamp(1.65rem, 8vw, 2.55rem) !important;
+    line-height: 1.12 !important;
+    text-align: center !important;
+  }
+
+  .section-head p:not(.section-kicker),
+  #scope .section-head p:not(.section-kicker) {
+    max-width: 100% !important;
+    margin-top: 16px !important;
+    font-size: 0.98rem !important;
+    line-height: 1.55 !important;
+    text-align: center !important;
+  }
+
+  /* Hero */
+  .hero,
+  .hero.section-padding {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+    gap: 18px !important;
+    padding-top: 36px !important;
+    padding-bottom: 42px !important;
+  }
+
+  .hero-content {
+    transform: none !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .eyebrow {
+    justify-content: center !important;
+    font-size: 0.72rem !important;
+    letter-spacing: 0.16em !important;
+    line-height: 1.4 !important;
+  }
+
+  .hero h1 {
+    max-width: 100% !important;
+    margin-top: 14px !important;
+    font-size: clamp(2.25rem, 13vw, 3.8rem) !important;
+    line-height: 1.02 !important;
+    text-align: center !important;
+  }
+
+  .hero-copy {
+    max-width: 100% !important;
+    margin-top: 18px !important;
+    font-size: 0.98rem !important;
+    line-height: 1.6 !important;
+    text-align: center !important;
+  }
+
+  .hero-actions {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    margin-top: 22px !important;
+  }
+
+  .hero-actions .btn,
+  .btn {
+    width: 100% !important;
+    min-height: 48px !important;
+    padding-inline: 18px !important;
+    font-size: 0.92rem !important;
+  }
+
+  .hero-stats {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    margin-top: 24px !important;
+  }
+
+  .hero-stats article {
+    padding: 12px 8px !important;
+    border-radius: 16px !important;
+  }
+
+  .hero-stats strong {
+    font-size: 1.1rem !important;
+  }
+
+  .hero-stats span {
+    font-size: 0.68rem !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Mobile orbit / 3D logo */
+  .hero-visual,
+  .bs-orbit-visual {
+    width: 100% !important;
+    min-height: 360px !important;
+    max-height: 390px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    overflow: hidden !important;
+    perspective: none !important;
+  }
+
+  .bs-orbit-stage {
+    width: 100% !important;
+    max-width: 420px !important;
+    height: 360px !important;
+    transform: none !important;
+    overflow: hidden !important;
+  }
+
+  .center-cube.logo-model-wrap {
+    width: 210px !important;
+    height: 210px !important;
+    left: 50% !important;
+    top: 46% !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 20 !important;
+  }
+
+  .center-cube.logo-model-wrap model-viewer {
+    pointer-events: none !important;
+    touch-action: auto !important;
+  }
+
+  .orbit-path {
+    width: 340px !important;
+    height: 72px !important;
+    left: 50% !important;
+    top: 48% !important;
+    opacity: 0.75 !important;
+  }
+
+  .orbit-card {
+    width: 142px !important;
+    min-height: 66px !important;
+    padding: 9px 10px !important;
+    border-radius: 14px !important;
+  }
+
+  .orbit-card strong {
+    font-size: 0.72rem !important;
+    line-height: 1.15 !important;
+  }
+
+  .orbit-card small {
+    margin-top: 4px !important;
+    font-size: 0.58rem !important;
+    line-height: 1.25 !important;
+  }
+
+  @keyframes beltOrbit {
+    0% {
+      transform: translate(calc(-50% + 150px), -50%) scale(0.82);
+      opacity: 0.68;
+    }
+    12.5% {
+      transform: translate(calc(-50% + 106px), calc(-50% + 18px)) scale(0.92);
+      opacity: 0.92;
+    }
+    25% {
+      transform: translate(-50%, calc(-50% + 34px)) scale(1);
+      opacity: 1;
+    }
+    37.5% {
+      transform: translate(calc(-50% - 106px), calc(-50% + 18px)) scale(0.92);
+      opacity: 0.92;
+    }
+    50% {
+      transform: translate(calc(-50% - 150px), -50%) scale(0.72);
+      opacity: 0.36;
+    }
+    62.5% {
+      transform: translate(calc(-50% - 106px), calc(-50% - 18px)) scale(0.72);
+      opacity: 0.18;
+    }
+    75% {
+      transform: translate(-50%, calc(-50% - 34px)) scale(0.68);
+      opacity: 0;
+    }
+    87.5% {
+      transform: translate(calc(-50% + 106px), calc(-50% - 18px)) scale(0.72);
+      opacity: 0.18;
+    }
+    100% {
+      transform: translate(calc(-50% + 150px), -50%) scale(0.82);
+      opacity: 0.68;
+    }
+  }
+
+  /* Tech strip */
+  .tech-strip {
+    width: calc(100% - 28px) !important;
+    margin: 0 auto !important;
+    padding: 12px 0 !important;
+    border-radius: 18px !important;
+  }
+
+  .tech-strip-track {
+    gap: 32px !important;
+    animation-duration: 18s !important;
+  }
+
+  .tech-strip span {
+    font-size: 0.78rem !important;
+  }
+
+  /* Services */
+  #services.section-padding,
+  #scope.section-padding,
+  #technology.section-padding,
+  #clients.section-padding {
+    min-height: auto !important;
+    padding-top: 76px !important;
+    padding-bottom: 76px !important;
+  }
+
+  .service-grid {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    overflow: visible !important;
+    padding-bottom: 0 !important;
+  }
+
+  .service-card,
+  .service-wide {
+    min-height: 260px !important;
+    grid-column: span 1 !important;
+    grid-template-rows: 1fr auto auto !important;
+    padding: 18px !important;
+    border-radius: 22px !important;
+  }
+
+  .service-card h3 {
+    min-height: auto !important;
+    font-size: 1.16rem !important;
+  }
+
+  .service-card p {
+    max-height: none !important;
+    font-size: 0.9rem !important;
+  }
+
+  /* Scope */
+  .split-section,
+  #scope.split-section {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    align-content: start !important;
+    min-height: auto !important;
+  }
+
+  #scope .section-head.align-left {
+    max-width: 100% !important;
+  }
+
+  .timeline-card {
+    padding: 12px !important;
+    border-radius: 26px !important;
+  }
+
+  .timeline-card article {
+    padding: 18px 16px !important;
+    border-radius: 18px !important;
+    text-align: left !important;
+  }
+
+  .timeline-card h3 {
+    font-size: 0.98rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .timeline-card p {
+    font-size: 0.86rem !important;
+    line-height: 1.45 !important;
+  }
+
+  /* Technology */
+  .technology-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  .technology-grid article {
+    min-height: 96px !important;
+    padding: 16px !important;
+    border-radius: 18px !important;
+  }
+
+  .technology-grid article img {
+    max-width: 124px !important;
+    max-height: 52px !important;
+  }
+
+  /* Why choose */
+  .why-panel {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    padding: 24px 18px !important;
+    border-radius: 28px !important;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .why-grid article {
+    padding: 18px !important;
+    border-radius: 18px !important;
+  }
+
+  /* Clients */
+  #clients .section-head {
+    margin-bottom: 18px !important;
+  }
+
+  .client-intro {
+    font-size: 0.92rem !important;
+    line-height: 1.55 !important;
+  }
+
+  .client-tags {
+    gap: 8px !important;
+    margin-bottom: 22px !important;
+  }
+
+  .client-tags span {
+    min-height: 30px !important;
+    padding: 0 12px !important;
+    font-size: 0.68rem !important;
+  }
+
+  .logo-marquee {
+    margin-top: 24px !important;
+    border-radius: 20px !important;
+  }
+
+  .logo-track {
+    gap: 10px !important;
+    padding: 16px !important;
+    animation-duration: 22s !important;
+  }
+
+  .logo-track span {
+    width: 142px !important;
+    height: 84px !important;
+    padding: 12px !important;
+    border-radius: 18px !important;
+  }
+
+  .logo-track span img {
+    max-width: 112px !important;
+    max-height: 54px !important;
+  }
+
+  /* Contact */
+  #contact.contact-section,
+  .contact-section {
+    width: calc(100% - 28px) !important;
+    padding-top: 72px !important;
+    padding-bottom: 28px !important;
+  }
+
+  .contact-card {
+    grid-template-columns: 1fr !important;
+    gap: 22px !important;
+    padding: 24px 16px !important;
+    border-radius: 28px !important;
+  }
+
+  #contact .contact-copy {
+    transform: none !important;
+    text-align: center !important;
+  }
+
+  #contact .contact-copy > .section-kicker {
+    margin-bottom: 12px !important;
+  }
+
+  .contact-copy > p:not(.section-kicker) {
+    max-width: 100% !important;
+    font-size: 0.92rem !important;
+    line-height: 1.55 !important;
+    text-align: center !important;
+  }
+
+  .contact-info {
+    max-width: 100% !important;
+    margin-top: 20px !important;
+    gap: 10px !important;
+  }
+
+  .contact-info article {
+    padding: 13px 14px !important;
+    border-radius: 16px !important;
+    text-align: left !important;
+  }
+
+  .contact-info p {
+    font-size: 0.86rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .contact-form {
+    width: 100% !important;
+    padding: 20px 14px !important;
+    gap: 10px !important;
+    border-radius: 22px !important;
+    height: auto !important;
+    align-content: start !important;
+  }
+
+  #contact .form-quote {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 8px !important;
+    font-size: 1rem !important;
+    line-height: 1.45 !important;
+  }
+
+  #contact .form-field,
+  #contact .contact-submit {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  #contact .form-field label {
+    text-align: left !important;
+    font-size: 0.68rem !important;
+  }
+
+  .form-field input,
+  .form-field textarea {
+    min-height: 46px !important;
+    padding: 11px 12px !important;
+    font-size: 0.92rem !important;
+    border-radius: 13px !important;
+  }
+
+  .form-field textarea {
+    min-height: 96px !important;
+  }
+
+  .contact-submit {
+    min-height: 46px !important;
+    margin-top: 10px !important;
+    border-radius: 13px !important;
+  }
+
+  /* Footer */
+  .site-footer {
+    width: calc(100% - 28px) !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    gap: 8px !important;
+    padding: 16px 0 22px !important;
+    margin-bottom: 0 !important;
+    font-size: 0.78rem !important;
+  }
+
+  /* Chat widget */
+  .bs-chat-widget {
+    right: 14px !important;
+    bottom: 14px !important;
+  }
+
+  .bs-chat-toggle {
+    width: 56px !important;
+    height: 56px !important;
+    font-size: 1.28rem !important;
+  }
+
+  .bs-chat-panel {
+    position: fixed !important;
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 82px !important;
+    width: auto !important;
+    height: min(72vh, 520px) !important;
+    border-radius: 24px !important;
+  }
+
+  .bs-chat-header {
+    padding: 14px !important;
+  }
+
+  .bs-chat-logo,
+  .bs-chat-avatar {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 12px !important;
+  }
+
+  .bs-chat-brand-text strong {
+    font-size: 0.9rem !important;
+  }
+
+  .bs-chat-brand-text span {
+    font-size: 0.72rem !important;
+  }
+
+  .bs-chat-body {
+    padding: 14px !important;
+  }
+
+  .bs-chat-bubble {
+    max-width: 82% !important;
+    padding: 10px 12px !important;
+    font-size: 0.86rem !important;
+  }
+
+  .bs-chat-form {
+    grid-template-columns: 1fr 48px !important;
+    gap: 8px !important;
+    padding: 12px 14px !important;
+  }
+
+  .bs-chat-form input {
+    min-height: 46px !important;
+    border-radius: 14px !important;
+    font-size: 0.86rem !important;
+  }
+
+  .bs-chat-send {
+    border-radius: 14px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-padding,
+  .why-section,
+  #contact.contact-section,
+  .contact-section {
+    width: calc(100% - 22px) !important;
+  }
+
+  .site-header {
+    width: calc(100% - 14px) !important;
+  }
+
+  .brand-text {
+    font-size: 0.95rem !important;
+  }
+
+  .main-nav a {
+    min-height: 32px !important;
+    padding: 0 12px !important;
+    font-size: 0.72rem !important;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 12.6vw, 3.15rem) !important;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-stats article {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    text-align: left !important;
+    padding: 14px 16px !important;
+  }
+
+  .hero-stats span {
+    margin-top: 0 !important;
+    text-align: right !important;
+  }
+
+  .hero-visual,
+  .bs-orbit-visual {
+    min-height: 330px !important;
+    max-height: 350px !important;
+  }
+
+  .bs-orbit-stage {
+    height: 330px !important;
+  }
+
+  .center-cube.logo-model-wrap {
+    width: 188px !important;
+    height: 188px !important;
+  }
+
+  .orbit-card {
+    width: 128px !important;
+    min-height: 60px !important;
+  }
+
+  .technology-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .contact-card {
+    padding: 22px 14px !important;
+  }
+}
