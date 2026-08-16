@@ -10,9 +10,142 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="mobile.css" />
+  <link rel="stylesheet" href="intro.css" />
   <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script src="model-loader.js" defer></script>
 </head>
 <body>
+  <!-- =====================================================
+       BEST SOLUTION INTERACTIVE INTRO
+       Reference-inspired visual language; original implementation.
+       ===================================================== -->
+  <section class="bs-intro" id="bsIntro" aria-label="Best Solution interactive introduction">
+    <canvas class="bs-intro-canvas" id="bsIntroCanvas" aria-hidden="true"></canvas>
+    <canvas class="bs-intro-fx-canvas" id="bsIntroFxCanvas" aria-hidden="true"></canvas>
+    <div class="bs-intro-noise" aria-hidden="true"></div>
+
+    <div class="bs-intro-topbar">
+      <div class="bs-intro-brand" aria-label="Best Solution">
+        <img src="images/logo-icon.png" alt="Best Solution Logo">
+        <span class="bs-intro-brand-copy">
+          <strong>Best Solution</strong>
+          <small>System Integration</small>
+        </span>
+      </div>
+
+      <div class="bs-intro-controls" aria-label="Intro controls">
+        <button class="bs-intro-icon-btn is-muted" id="bsIntroSound" type="button" aria-label="Turn intro music on" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 10v4h3l4 3V7l-4 3H4Z" fill="currentColor" opacity=".82"/>
+            <path d="M14.5 9.1c1.3 1.2 1.3 4.6 0 5.8M17 6.7c3.3 3.1 3.3 7.5 0 10.6" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" opacity=".72"/>
+            <path class="sound-off-mark" d="M5 5l14 14" stroke="currentColor" stroke-width="1.35" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <a class="bs-intro-pill bs-intro-top-talk" href="#contact" data-intro-target="#contact">Let's Talk</a>
+        <button class="bs-intro-menu-btn" id="bsIntroMenuButton" type="button" aria-expanded="false" aria-controls="bsIntroMenuOverlay">
+          <span>Menu</span>
+          <span class="bs-intro-menu-lines" aria-hidden="true"><i></i><i></i></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="bs-intro-content">
+      <div class="bs-intro-copy">
+        <p class="bs-intro-kicker">Best Solution · System Integration</p>
+        <h1 class="bs-intro-title">Empowering Business With <span class="accent">Smart IT</span></h1>
+
+        <div class="bs-intro-actions">
+          <a class="bs-intro-link" href="#contact" data-intro-target="#contact">
+            <span>Discuss Your Project</span><span aria-hidden="true">→</span>
+          </a>
+          <a class="bs-intro-link" href="#home" data-intro-target="#home">
+            <span>Enter Website</span><span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="bs-intro-model-zone" id="bsIntroModelZone" aria-label="Interactive Best Solution 3D logo" tabindex="0">
+        <div class="bs-intro-shatter-layer" id="bsIntroShatter" aria-hidden="true"></div>
+        <div class="bs-intro-model-halo" aria-hidden="true"></div>
+        <img class="bs-intro-model-fallback" id="bsIntroModelFallback" src="images/logo-icon.png" alt="" aria-hidden="true">
+        <model-viewer
+          class="bs-intro-model"
+          id="bsIntroModel"
+          data-bs-model
+          data-model-src="./images/3D-BS-logo.glb"
+          alt="Best Solution 3D Logo"
+          autoplay
+          auto-rotate
+          auto-rotate-delay="0"
+          rotation-per-second="10deg"
+          camera-orbit="20deg 72deg 115%"
+          field-of-view="31deg"
+          disable-zoom
+          interaction-prompt="none"
+          shadow-intensity="0.85"
+          shadow-softness="1"
+          exposure="1.05"
+          environment-image="neutral"
+          style="--poster-color: transparent; background: transparent;">
+        </model-viewer>
+        <span class="bs-intro-model-label">Interactive 3D System</span>
+      </div>
+
+      <aside class="bs-intro-side" aria-label="Best Solution profile">
+        <div class="bs-intro-meta-card">
+          <div class="bs-intro-meta-top">
+            <div>
+              <span class="bs-intro-meta-symbol" aria-hidden="true">◎</span>
+              <strong>Smart IT</strong>
+            </div>
+            <div><span>Infrastructure<br>Security<br>Support</span></div>
+          </div>
+        </div>
+        <p>Reliable IT systems built for clarity, security, scale and everyday business operations.</p>
+      </aside>
+    </div>
+
+    <div class="bs-intro-footer">
+      <span class="bs-intro-scroll-cue"><i>↓</i> Enter to explore</span>
+      <div class="bs-intro-hold">Hold the <strong>3D logo</strong> to <b>blast</b><br>Dare ⚡ to touch the signal lines.</div>
+      <span class="bs-intro-audio-status" id="bsIntroAudioStatus">Audio: ready on interaction</span>
+    </div>
+
+    <div class="bs-intro-menu-overlay" id="bsIntroMenuOverlay" aria-hidden="true">
+      <button class="bs-intro-menu-close" id="bsIntroMenuClose" type="button" aria-label="Close menu">×</button>
+      <nav class="bs-intro-menu-nav" aria-label="Intro menu">
+        <a href="#home" data-intro-target="#home"><span>Home</span><small>01</small></a>
+        <a href="#services" data-intro-target="#services"><span>Services</span><small>02</small></a>
+        <a href="#scope" data-intro-target="#scope"><span>Scope</span><small>03</small></a>
+        <a href="#technology" data-intro-target="#technology"><span>Technology</span><small>04</small></a>
+        <a href="#clients" data-intro-target="#clients"><span>Clients</span><small>05</small></a>
+        <a href="#contact" data-intro-target="#contact"><span>Contact</span><small>06</small></a>
+      </nav>
+      <div class="bs-intro-menu-info">
+        <p>Business Enquiry</p>
+        <a href="mailto:bestsolutionmyanmar@gmail.com">bestsolutionmyanmar@gmail.com</a>
+        <a href="tel:+959250029252">09-250029252</a>
+        <p style="margin-top:18px">Best Solution System Integration</p>
+        <strong>Empowering Business With Smart IT</strong>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Persistent site soundtrack: stays alive after the intro closes. -->
+  <audio id="bsIntroAudio" preload="auto" loop>
+    <source src="assets/intro-music.mp3" type="audio/mpeg">
+  </audio>
+
+  <button class="bs-persistent-sound is-muted" id="bsPersistentSound" type="button"
+          aria-label="Turn site music on" aria-pressed="false" hidden>
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M4 10v4h3l4 3V7l-4 3H4Z" fill="currentColor" opacity=".86"/>
+      <path d="M14.5 9.1c1.3 1.2 1.3 4.6 0 5.8M17 6.7c3.3 3.1 3.3 7.5 0 10.6" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" opacity=".78"/>
+      <path class="sound-off-mark" d="M5 5l14 14" stroke="currentColor" stroke-width="1.35" stroke-linecap="round"/>
+    </svg>
+    <span>Music</span>
+  </button>
   <span id="home" class="top-anchor"></span>
   <div id="vanta-bg"></div>
   <div class="page-bg" aria-hidden="true">
@@ -79,8 +212,10 @@
 
  <div class="center-cube logo-model-wrap">
  <model-viewer
-  src="./images/3D-BS-logo.glb"
+  data-bs-model
+  data-model-src="./images/3D-BS-logo.glb"
   alt="Best Solution 3D Logo"
+  loading="lazy"
   auto-rotate
   auto-rotate-delay="0"
   rotation-per-second="25deg"
@@ -512,30 +647,40 @@
 <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
 
 <script>
-  VANTA.BIRDS({
-    el: "#vanta-bg",
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00,
+  function initBestSolutionVanta() {
+    if (!window.VANTA || !document.getElementById("vanta-bg") || window.bestSolutionVanta) return;
 
-    backgroundColor: 0x020617,
-    backgroundAlpha: 0,
-    color1: 0x22d3ee,
-    color2: 0x22c55e,
-    colorMode: "varianceGradient",
+    window.bestSolutionVanta = VANTA.BIRDS({
+      el: "#vanta-bg",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
 
-    quantity: 4,
-    birdSize: 0.8,
-    wingSpan: 28,
-    speedLimit: 4,
-    separation: 28,
-    alignment: 24,
-    cohesion: 24
-  });
+      backgroundColor: 0x020617,
+      backgroundAlpha: 0,
+      color1: 0x22d3ee,
+      color2: 0x22c55e,
+      colorMode: "varianceGradient",
+
+      quantity: 4,
+      birdSize: 0.8,
+      wingSpan: 28,
+      speedLimit: 4,
+      separation: 28,
+      alignment: 24,
+      cohesion: 24
+    });
+  }
+
+  if (document.getElementById("bsIntro")) {
+    window.addEventListener("bs:intro-closed", initBestSolutionVanta, { once: true });
+  } else {
+    initBestSolutionVanta();
+  }
 </script>
 <script>
   const bsChatToggle = document.getElementById("bsChatToggle");
@@ -589,5 +734,6 @@
     });
   }
 </script>
+  <script src="intro.js"></script>
 </body>
 </html>
